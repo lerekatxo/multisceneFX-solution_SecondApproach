@@ -8,12 +8,6 @@ import javafx.fxml.FXML;
 public class MainMenuController {
 
     @FXML
-    private ResourceBundle resources;
-
-    @FXML
-    private URL location;
-
-    @FXML
     void logout(ActionEvent event) {
         System.out.println("Logout");
     }
