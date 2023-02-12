@@ -23,6 +23,10 @@ public class MultiSceneController {
 
     @FXML
     void loginAction(ActionEvent event) {
+        String user = userField.getText();
+        String password = passwordField.getText();
+        System.out.println("User: " + user);
+        System.out.println("Password: " + password);
 
     }
 
