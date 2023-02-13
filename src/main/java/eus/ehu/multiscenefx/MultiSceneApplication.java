@@ -45,9 +45,11 @@ public class MultiSceneApplication extends Application {
     public void changeScene(String scene) {
         switch (scene) {
             case "Login":
+                stage.setTitle("Login");
                 stage.setScene(loginScene);
                 break;
             case "Main Menu":
+                stage.setTitle("Main Menu");
                 stage.setScene(mainMenuScene);
                 break;
         }
