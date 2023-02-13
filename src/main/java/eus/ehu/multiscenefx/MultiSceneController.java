@@ -20,6 +20,7 @@ public class MultiSceneController {
 
     @FXML
     private TextField userField;
+    private MultiSceneApplication mainApp;
 
     @FXML
     void loginAction(ActionEvent event) {
@@ -28,6 +29,8 @@ public class MultiSceneController {
         System.out.println("User: " + user);
         System.out.println("Password: " + password);
 
+        // call the next scene
+        mainApp.changeScene("Main Menu");
     }
 
     @FXML
@@ -35,4 +38,7 @@ public class MultiSceneController {
 
     }
 
+    public void setMain(MultiSceneApplication multiSceneApplication) {
+        this.mainApp = multiSceneApplication;
+    }
 }
