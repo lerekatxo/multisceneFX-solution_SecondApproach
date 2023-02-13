@@ -26,7 +26,7 @@ public class MultiSceneApplication extends Application {
         loginController.setMain(  this  );
         loginScene = new Scene( loginUI );
 
-        // FIXME: this is working but it's not perfect
+        // FIXME: this works but should be refactored
         FXMLLoader fxmlLoaderMain = new FXMLLoader(MultiSceneApplication.class.getResource("main-menu.fxml"));
         Parent mainUI = fxmlLoaderMain.load();
         MainMenuController mainMenuController = fxmlLoaderMain.getController();
