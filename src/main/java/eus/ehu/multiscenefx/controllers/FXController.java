@@ -7,7 +7,6 @@ import eus.ehu.multiscenefx.MultiSceneApplication;
 
      void setMain(MultiSceneApplication multiSceneApplication) {
 
-
     }
 
 

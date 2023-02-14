@@ -21,10 +21,26 @@ public class MultiSceneApplication extends Application {
     class Window{
         Parent wi;
         FXController controller;
-        //FXController will be an interface!
-        //hold a reference to
+        //FXController will be an interface! //hold a reference to the Controller
 
     }
+
+
+    //load window
+    private Window load(String fxmlFile){
+
+        Window window = new Window;
+        FXMLLoader fxmlLoader = new FXMLLoader(MultiSceneApplication.class.getResource("login.xlm");
+
+        window.ui = fxmlLoader.load();
+        window.controller=  fxmlLoader.getController();
+
+        window.controller.setMain(this);    //This --> refers to the class
+                        return window;
+
+    }
+
+
     private Stage stage;
 
     //private Scene loginScene;
@@ -39,10 +55,14 @@ public class MultiSceneApplication extends Application {
 
         this.stage = stage;
 
-        FXMLLoader fxmlLoaderLogin = new FXMLLoader(MultiSceneApplication.class.getResource("login.fxml"));
-        loginUI = fxmlLoaderLogin.load(); //before(Parent loginUI = fxmlLoaderLogin.load();) was a local variable, now is an atrribute
-        MultiSceneController loginController = fxmlLoaderLogin.getController();
-        loginController.setMain(  this  );
+
+        Window loginWindow = load("login.xlm");
+        Window mainWindow = load("main.menu.xlm");
+
+        //FXMLLoader fxmlLoaderLogin = new FXMLLoader(MultiSceneApplication.class.getResource("login.fxml"));
+       // loginUI = fxmlLoaderLogin.load(); //before(Parent loginUI = fxmlLoaderLogin.load();) was a local variable, now is an atrribute
+        //MultiSceneController loginController = fxmlLoaderLogin.getController();
+        //loginController.setMain(  this  );
         //loginScene = new Scene( loginUI );
 
         // FIXME: this works but should be refactored
@@ -50,11 +70,11 @@ public class MultiSceneApplication extends Application {
         // Whenever, i need to try I newfeature
         // To do that, we will create a new branch
         //  all the new commits should go to main
-        FXMLLoader fxmlLoaderMain = new FXMLLoader(MultiSceneApplication.class.getResource("main-menu.fxml"));
-        mainUI = fxmlLoaderMain.load();
-        MainMenuController mainMenuController = fxmlLoaderMain.getController();
-        mainMenuController.setMain(  this  );
-        //mainMenuScene = new Scene(  mainUI );
+        //FXMLLoader fxmlLoaderMain = new FXMLLoader(MultiSceneApplication.class.getResource("main-menu.fxml"));
+        //mainUI = fxmlLoaderMain.load();
+        //MainMenuController mainMenuController = fxmlLoaderMain.getController();
+        //mainMenuController.setMain(  this  );
+        //mainMenuScene = new Scene( mainUI );
 
 
         scene = new Scene(loginUI);
@@ -72,14 +92,14 @@ public class MultiSceneApplication extends Application {
         switch (sceneName) {
             case "Login":
                 stage.setTitle("Login");
-                scene.setRoot(loginUI); //this
+                scene.setRoot(loginWindow.ui);
                 //stage.setScene(loginScene);
                 stage.setScene(scene);
 
                 break;
             case "Main Menu":
                 stage.setTitle("Main Menu");
-                scene.setRoot(mainUI);
+                scene.setRoot(mainWindow.ui) ;
                 //stage.setScene(mainMenuScene);
                 stage.setScene(scene);
                 break;
